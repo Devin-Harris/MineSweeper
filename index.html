@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script defer src="./js/setup.js"></script>
+    <script defer src="./js/ClickEvents.js"></script>
+    <script defer src="./js/EmptyClick.js"></script>
+    <script defer src="./js/scoring.js"></script>
+</head>
+<body>
+    
+    <div id="Intro_Screen">
+
+        <div id="ruleIcon"><div class="ruleClose"></div></div>
+        <div id="Rules">
+            <h1>How to play:</h1>
+            <p>The goal of the game is to flag every bomb on the board. Left clicking a piece will show how many bombs are around that
+            piece. Right clicking will flag a piece as a bomb. If you left click a bomb you will lose. If you flag a piece that
+            isn't a bomb, you will not be able to flag every bomb resulting in a lose. Left clicking pieces with no surrounding
+            bombs will show all pieces around it and all pieces around its neighboring empty pieces and so on. Good luck!</p>
+            
+            <div id="Notifier_Section">
+                <h4>[ Press Space to play ]</h4>
+                <i></i>
+            </div>
+        </div>
+
+        <img src="./assets/logo.svg" alt="Game Logo">
+
+        <div id="Start_Notifier">[ Press Space to continue ]</div>
+    </div>
+
+    <div id="End_Overlay"></div>
+
+    <div id="Container">
+        <div id="Game_Container">
+
+            <div id="Game_Info">
+                <div id="Flags">
+                    <div id="flagInfo">
+                        <img src="./assets/flagGreen.svg" alt="Flag">
+                        <h4 id="FlagsLeft"></h4>
+                        <h4> / </h4>
+                        <h4 id="FlagsTotal"></h4>
+                    </div>
+                </div>
+                <div id="Progress_Circle"></div>
+                <div id="Timer">
+                    <div id="timerInfo">
+                        <img src="./assets/clockGreen.svg" alt="Clock">
+                        <h4 id="Time"></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Piece_Container">
+                
+            </div>
+        </div>
+
+        <div class="Btn_Container" id="Btns">
+            <button class="btn-reset">Reset Flags</button>
+            <button class="btn-play">Play Again</button>
+            <button class="btn-quit">Quit Game</button>
+        </div>
+    </div>
+
+    <div id="End_Screen">
+        <div id="End_Info">
+            <h4></h4>
+            <div id="Timer_Indicator">
+                <i></i>
+                <p></p>
+            </div>
+        </div>
+
+        <div class="Btn_Container" id="endBtns">
+            <button class="btn-play">Play Again</button>
+        </div>
+    </div>
+
+</body>
+</html>

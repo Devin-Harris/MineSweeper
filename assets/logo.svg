@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="984" height="213.426" viewBox="0 0 984 213.426">
+  <g id="Group_7" data-name="Group 7" transform="translate(-301.426 -370)">
+    <path id="bomb-solid" d="M183.692,36.9l-21.684,21.68,11.051,11.049a9.964,9.964,0,0,1,0,14.134L165.8,91.015A86.748,86.748,0,1,1,122.433,47.7l7.256-7.255a9.968,9.968,0,0,1,14.137,0l11.051,11.049,21.684-21.68ZM208.5,25.016H198.5a5,5,0,1,0,0,10.006H208.5a5,5,0,1,0,0-10.006ZM183.483,0a5.018,5.018,0,0,0-5,5V15.009a5,5,0,0,0,10.008,0V5A5.018,5.018,0,0,0,183.483,0ZM197.62,22.931l7.089-7.088a5.012,5.012,0,1,0-7.089-7.088l-7.089,7.088a5.012,5.012,0,0,0,7.089,7.088Zm-28.273,0a5.012,5.012,0,1,0,7.089-7.088l-7.089-7.088a5.012,5.012,0,0,0-7.089,7.088ZM197.62,37.107a5.012,5.012,0,1,0-7.089,7.088l7.089,7.088a5.012,5.012,0,0,0,7.089-7.088ZM46.7,113.4A26.711,26.711,0,0,1,73.393,86.721a6.671,6.671,0,1,0,0-13.342A40.093,40.093,0,0,0,33.361,113.4a6.672,6.672,0,0,0,13.344,0Z" transform="translate(628.33 370)" fill="#fff"/>
+    <text id="Mine" transform="translate(301.426 545.881)" fill="#fff" font-size="117" font-family="Montserrat-BlackItalic, Montserrat" font-weight="800" font-style="italic"><tspan x="0" y="0">Mine</tspan></text>
+    <text id="Sweeper" transform="translate(822.426 533.881)" fill="#fff" font-size="104" font-family="Montserrat-MediumItalic, Montserrat" font-weight="500" font-style="italic"><tspan x="0" y="0">Sweeper</tspan></text>
+  </g>
+</svg>

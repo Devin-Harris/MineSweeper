@@ -1,0 +1,409 @@
+/* Variables */
+:root {
+    /* Default Game Colors */
+    --main-bg-color: #6AFDB8;
+    --game-bg-color: #EDFDD6;
+    --piece-color: #B7F483;
+    --piece-hover-color: #a0db6d;
+    --text-color: white;
+
+    /* Individual Piece Colors */
+    --green-piece: #478D29;
+    --blue-piece: #3371F7;
+    --yellow-piece: #FFCE3D;
+    --pink-piece: #FF7083;
+    --red-piece: #DB534C;
+    --black-piece: #444444;
+}
+
+@font-face {
+    font-family: snapFont;
+    src: url(../assets/snapFont.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+html {
+    background-color: var(--main-bg-color);
+}
+
+/* Screen Styles */
+#Intro_Screen {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--main-bg-color);
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 15;
+    font-family: 'montserrat';
+}
+
+#Intro_Screen img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#Intro_Screen #Start_Notifier {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200%;
+    font-weight: 400;
+    color: white;
+}
+
+/* Rules styles */
+#ruleIcon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    z-index: 500;
+}
+#ruleIcon div {
+    height: 50px;
+    width: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ruleOpen {
+    background-image: url(../assets/rulesOpen.svg);
+}
+
+.ruleClose {
+    background-image: url(../assets/rulesClosed.svg);
+}
+
+#ruleIcon div:hover {
+    cursor: pointer;
+}
+
+#Rules {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 900px;
+    height: auto;
+    background-color: white;
+    padding: 30px;
+    color: var(--main-bg-color);
+    display: none;
+    z-index: 10;
+    box-shadow: -3px 9px 9px rgba(0, 0, 0, 0.164);
+}
+
+#Rules h1 {
+    font-weight: 800;
+    font-size: 250%;
+}
+#Rules p {
+    font-weight: 400;
+    font-size: 150%;
+    line-height: 110%;
+    margin: 15px 0;
+}
+#Rules #Notifier_Section {
+    font-size: 200%;
+    line-height: 110%;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#Notifier_Section h4 {
+    font-weight: 400;
+}
+#Notifier_Section i {
+    height: 100px;
+    width: 100px;
+    background-image: url('../assets/bombGreen.svg');
+    background-size: cover;
+}
+#End_Overlay {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.705);
+}
+#End_Screen {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 5;
+    font-family: 'montserrat';
+    font-size: 250%;
+    color: white;
+    font-weight: 900;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#End_Info {
+    display: none;
+}
+#Timer_Indicator {
+    width: auto;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Timer_Indicator i {
+    width: 60px;
+    height: 60px;
+    background-image: url('../assets/clockGreen.svg');
+    background-size: cover;
+}
+
+#Timer_Indicator p {
+    font-size: 100%;
+    font-weight: 600;
+    margin: 0 15px;
+}
+
+/* Game positioning */
+#Container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 685px;
+    height: 100vh;
+    z-index: 4;
+}
+
+/* Game Styles */
+#Game_Container {
+    position: relative;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%);
+    width: 685px;
+    height: 625px;
+    background-color: var(--game-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+
+/* Game Info */
+#Game_Info {
+    width: 95%;
+    height: 100px;
+    display: grid;
+    grid-template-columns: auto 100px auto;
+    grid-template-rows: auto;
+    place-items: center;
+    grid-gap: 15px;
+    margin-bottom: 10px;
+}
+
+#Flags, #Timer, #Progress_Circle {
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    border-radius: 50rem;
+    font-family: 'montserrat';
+    color: var(--main-bg-color);
+    font-size: 125%;
+}
+
+ #Flags, #Timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+#flagInfo, #timerInfo {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Flags img, #Timer img {
+    margin: 0 5% 0 0;
+}
+
+#Flags h4, #Timer h4 {
+    margin: 0 2%;
+}
+
+#Progress_Circle {
+    height: 100%;
+    border-radius: 50%;
+    border: 6px solid white;
+}
+
+/* Pieces and how they are arranged */
+#Piece_Container {
+    width: 100%;
+    height: 490px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 50px);
+    grid-template-rows: repeat(9, 50px);
+    grid-gap: 5px;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+.Piece {
+    background-color: var(--piece-color);
+    border-radius: 5px;
+}
+
+.Piece:hover {
+    cursor: pointer;
+    background-color: var(--piece-hover-color);
+}
+
+/* Different Piece Styles */
+.Style-1, .Style-2, .Style-3, .Style-4, .Style-0, .Style-Flag, .Style-Bomb, .Style-Bomb-Found, .Style-Flag-Incorrect {
+    box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.4);
+    color: var(--text-color);
+    font-family: snapFont;
+    font-size: 200%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Style-1:hover, .Style-2:hover, .Style-3:hover, .Style-4:hover, .Style-0:hover, .Style-Bomb:hover {
+    cursor: default;
+}
+
+.Style-1, .Style-1:hover {
+    background-color: var(--green-piece);
+}
+
+.Style-2, .Style-2:hover {
+    background-color: var(--blue-piece);
+}
+
+.Style-3, .Style-3:hover {
+    background-color: var(--yellow-piece);
+}
+
+.Style-4, .Style-4:hover {
+    background-color: var(--pink-piece);
+}
+
+.Style-0, .Style-0:hover {
+    background-color: var(--game-bg-color);
+}
+
+.Style-Flag {
+    background-color: white;
+    color: var(--red-piece);
+}
+.Style-Flag i, .Style-Flag-Incorrect i {
+    height: 90%;
+    width: 90%;
+    background-image: url(../assets/flag.svg);
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+ .Style-Flag:hover {
+     background-color:  rgb(230, 230, 230);
+ }
+
+.Style-Bomb, .Style-Bomb:hover {
+    background-color: var(--black-piece);
+    color: var(--red-piece);
+}
+
+.Style-Bomb-Found {
+    background-color: white;
+    color: var(--red-piece);
+}
+
+.Style-Bomb i, .Style-Bomb-Found i {
+    height: 90%;
+    width: 90%;
+    background-image: url(../assets/bombWhite.svg);
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+}
+
+.Style-Bomb-Found i {
+    background-image: url(../assets/bombRed.svg);
+}
+
+.Style-Flag-Incorrect {
+    background-color: var(--red-piece);
+    color: var(--red-piece);
+}
+.Style-Flag-Incorrect i {
+    background-image: url(../assets/incorrectFlag.svg);
+}
+
+/* Btn styles */
+.Btn_Container {
+    position: relative;
+    left: 50%;
+    top: 130px;
+    transform: translate(-50%, -50%);
+    width: 685px;
+    height: 45px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+}
+
+.Btn_Container button {
+    width: 100%;
+    height: 100%;
+    color: var(--main-bg-color);
+    background-color: white;
+    outline: none;
+    border: 2px solid white;
+    font-family: 'montserrat';
+    font-weight: 700;
+    transition: .2s;
+}
+
+.Btn_Container button:hover {
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+}
+
+#endBtns {
+    position: static;
+    transform: translate(0, 0);
+    grid-template-columns: 1fr;
+    width: 385px;
+}
+
+#endBtns button {
+    color: black;
+}
+
+#endBtns button:hover {
+    color: white;
+}
